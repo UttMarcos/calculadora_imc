@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de IMC</h1>
+        <div class="form">
+            <label for="name">Nome Completo:</label>
+            <input type="text" id="name" placeholder="Digite seu nome" required>
+
+            <label for="age">Idade:</label>
+            <input type="number" id="age" placeholder="Digite sua idade" required>
+
+            <label for="weight">Peso (kg):</label>
+            <input type="number" id="weight" placeholder="Digite seu peso" required>
+
+            <label for="height">Altura (m):</label>
+            <input type="number" step="0.01" id="height" placeholder="Digite sua altura" required>
+
+            <button onclick="calculateIMC()">Calcular IMC</button>
+        </div>
+
+        <div id="result" class="result">
+            <p><strong>Nome:</strong> <span id="userName">-</span></p>
+            <p><strong>Idade:</strong> <span id="userAge">-</span></p>
+            <p><strong>IMC:</strong> <span id="imcValue">-</span></p>
+            <p><strong>Categoria:</strong> <span id="category" class="category">-</span></p>
+        </div>
+
+        <div id="tips" class="tips">
+            <h2>Hábitos Saudáveis</h2>
+            <ul id="habitList">
+                <!-- Dicas serão inseridas aqui dinamicamente -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
