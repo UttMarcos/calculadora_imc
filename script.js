@@ -1,17 +1,32 @@
 function calculateIMC() {
+    const name = document.getElementById("name").value.trim();
+    const age = parseInt(document.getElementById("age").value);
     const weight = parseFloat(document.getElementById("weight").value);
     const height = parseFloat(document.getElementById("height").value);
 
-    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+    // Validação dos campos
+    if (!name) {
+        alert("Por favor, insira o seu nome.");
+        return;
+    }
+
+    if (isNaN(age) || age <= 0) {
+        alert("Por favor, insira uma idade válida.");
+        return;
+    }
+
+    if (isNaN(weight) || weight <= 0 || isNaN(height) || height <= 0) {
         alert("Por favor, insira valores válidos para peso e altura.");
         return;
     }
 
+    // Cálculo do IMC
     const imc = weight / (height * height);
     const imcValue = imc.toFixed(2);
     let category = "";
     let habits = [];
 
+    // Determinação da categoria e dicas
     if (imc < 18.5) {
         category = "Abaixo do peso";
         habits = [
@@ -56,6 +71,9 @@ function calculateIMC() {
         ];
     }
 
+    // Atualiza o resultado na página
+    document.getElementById("userName").textContent = name;
+    document.getElementById("userAge").textContent = age;
     document.getElementById("imcValue").textContent = imcValue;
     document.getElementById("category").textContent = category;
 
